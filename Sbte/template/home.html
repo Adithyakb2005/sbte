@@ -1,0 +1,151 @@
+<!-- main/templates/main/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}c_site{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">c_site</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about_view' %}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'courses_view' %}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'placements_view' %}">Placements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact_view' %}">Contact Us</a></li>
+                </ul>
+                <a href="{% url 'register' %}" class="btn btn-primary ms-3">Register Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+        {% block content %}
+        <header class="bg-primary text-white text-center py-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold">The Best Learning Platform</h1>
+                <p class="lead">Our expert trainers can help you learn cutting-edge technologies.</p>
+                <a href="#courses" class="btn btn-secondary btn-lg">View Courses</a>
+            </div>
+        </header>
+        
+        <section class="py-5" id="courses">
+            <div class="container">
+                <h1 class="text-center fw-bold mb-4">Popular Courses</h1>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <!-- Use the correct static image path -->
+                            
+                            <img src="{% static 'image/programming-background-with-person-working-with-codes-computer.jpg' %}" class="card-img-top" alt="Python full-stack">
+                            <div class="card-body">
+                                <h5 class="card-title">Python full-stack web development</h5>
+                                <p class="card-text">Python full-stack web development with Django or Flask, HTML/CSS/javascript, React or Vue.js, PostgreSQL or MySQL.</p>
+                                <a href="" class="btn btn-primary">Explore Course</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="{% static 'image/representations-user-experience-interface-design.jpg'%}" class="card-img-top" alt="UI/UX">
+                            <div class="card-body">
+                                <h5 class="card-title">UI/UX Design</h5>
+                                <p class="card-text">Learn to create intuitive and beautiful user experiences.</p>
+                                <a href="" class="btn btn-primary">Explore Course</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="{% static 'image/photo-1520333789090-1afc82db536a.jpeg'%}" class="card-img-top" alt="Flutter">
+                            <div class="card-body">
+                                <h5 class="card-title">Mobile App Development</h5>
+                                <p class="card-text">Build cross-platform mobile apps with Flutter.</p>
+                                <a href="" class="btn btn-primary">Explore Course</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-md-start py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h6 class="fw-bold">About c_site</h6>
+                    <p class="text-muted">c_site is your trusted learning platform, offering expertly curated courses to help you build the skills you need to succeed in the tech-driven world.</p>
+                    <p class="text-muted">We are committed to delivering high-quality education and fostering a community of lifelong learners.</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'about_view' %}" class="text-dark">About Us</a></li>
+                        <li><a href="{% url 'courses_view' %}" class="text-dark">Courses</a></li>
+                        <li><a href="{% url 'placements_view' %}" class="text-dark">Placements</a></li>
+                        <li><a href="{% url 'contact_view' %}" class="text-dark">Contact Us</a></li>
+                        <li><a href="{% url 'register' %}" class="text-dark">Register Now</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">Blog</a></li>
+                        <li><a href="#" class="text-dark">Documentation</a></li>
+                        <li><a href="#" class="text-dark">Community Forum</a></li>
+                        <li><a href="#" class="text-dark">FAQs</a></li>
+                        <li><a href="#" class="text-dark">Terms of Service</a></li>
+                        <li><a href="#" class="text-dark">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Customer Support</h6>
+                    <p class="mb-0">Email: <a href="mailto:support@csite.com" class="text-dark">support@csite.com</a></p>
+                    <p class="mb-0">Phone: <a href="tel:+11234567890" class="text-dark">+1 (123) 456-7890</a></p>
+                    <p>Live Chat: <a href="#" class="text-dark">Start Chat</a></p>
+                    <h6 class="fw-bold mt-4">Subscribe to Our Newsletter</h6>
+                    <form>
+                        <div class="mb-2">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div>
+                    <a href="#" class="btn btn-outline-dark btn-sm me-2" aria-label="Facebook"><i class="bi bi-facebook"></i> Facebook</a>
+                    <a href="#" class="btn btn-outline-dark btn-sm me-2" aria-label="Twitter"><i class="bi bi-twitter"></i> Twitter</a>
+                    <a href="#" class="btn btn-outline-dark btn-sm me-2" aria-label="Instagram"><i class="bi bi-instagram"></i> Instagram</a>
+                    <a href="#" class="btn btn-outline-dark btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i> LinkedIn</a>
+                </div>
+                <p class="text-muted mb-0 mt-3 mt-md-0">&copy; 2024 c_site. All Rights Reserved. Built with ♥ by the <a href="#" class="text-dark fw-bold">c_site Team</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
